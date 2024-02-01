@@ -5,32 +5,35 @@
 #                                                     +:+ +:+         +:+      #
 #    By: albriffa <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/31 15:45:24 by albriffa          #+#    #+#              #
-#    Updated: 2024/01/31 16:33:16 by albriffa         ###   ########.fr        #
+#    Created: 2023/10/16 14:14:12 by albriffa          #+#    #+#              #
+#    Updated: 2024/02/01 16:24:43 by albriffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Name		= Push_swap
-CC			= cc
-RM			= rm -f
-CFLAGS		+= -Wall -Wextra -Werror
+NAME = push_swap.a
+OBJ = $(SRC:.c=.o)
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-SRC		= push_swap.c\
-
-OBJ		= $(SRC:.c=.o)
+SRC =	push_swap.c\
+	ft_algo.c\
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	ar crs $(NAME) $(OBJ)
+
+bonus : $(OBJ) $(OBJ_BONUS)
+	ar crs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
-	$(RM) $(OBJ)
+clean :
+	rm -f $(OBJ) $(OBJ_BONUS)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean : clean
+	rm -f $(NAME)
 
 re : fclean all
