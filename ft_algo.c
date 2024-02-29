@@ -25,7 +25,7 @@ void	ft_algo(t_sw *sw)
 		ft_rr(sw);
 	sw->p++;
 	if (sw->p == 1)
-		sw->in = "ra";
+		sw->in = "pb";
 	else if (sw->p == 2)
 		sw->in = "sa";
 	else if (sw->p == 3)
@@ -33,7 +33,7 @@ void	ft_algo(t_sw *sw)
 	else if (sw->p == 4)
 		sw->in = "sa";
 	else if (sw->p == 5)
-		sw->in = "ra";
+		sw->in = "rr";
 	if (sw->p <= 5)
 		ft_algo(sw);
 }
@@ -41,10 +41,14 @@ void	ft_algo(t_sw *sw)
 void	ft_pb(t_sw *sw)
 {
 	int	i;
+	int	k;
 
 	i = 0;
 	sw->k++;
-	sw->b = malloc(sizeof(sw->av) * (sw->k + 1));
+	k = sw->k;
+//	sw->b = malloc(sizeof(sw->av) * (sw->k + 1));
+	while (--k > 0)
+		sw->b[k] = sw->b[k - 1];
 	sw->b[0] = sw->av[1];
 	while (sw->j > ++i)
 		sw->av[i] = sw->av[i + 1];

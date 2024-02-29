@@ -54,6 +54,7 @@ int	main(int argc, char **argv)
 	int	i = 0;
 	sw.k = 0;
 	sw.p = 0;
+	sw.b = malloc(sizeof(sw.av) * 5);
 	sw.ac = argc;
 	sw.av = argv;
 	ft_error(&sw);
