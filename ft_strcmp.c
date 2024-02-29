@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albriffa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 15:43:52 by albriffa          #+#    #+#             */
-/*   Updated: 2024/02/01 15:47:02 by albriffa         ###   ########.fr       */
+/*   Created: 2023/10/16 15:47:37 by albriffa          #+#    #+#             */
+/*   Updated: 2023/10/18 12:29:48 by albriffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "stdio.h"
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef struct s_sw
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int	error;
-	int	j;
-	int	k;
-	int	p;
-	int	ac;
-	char	*in;
-	char	**av;
-	char	**b;
-}	t_sw;
+	size_t	i;
 
-void	ft_error(t_sw *sw);
-void	ft_algo(t_sw *sw);
-void	ft_pa(t_sw *sw);
-void	ft_pb(t_sw *sw);
-void	ft_ss(t_sw *sw);
-void	ft_rr(t_sw *sw);
-int	ft_strcmp(const char *s1, const char *s2);
-
-#endif
+	i = 0;
+	while (((s1[i] && s2[i]) || (s1[i] || s2[i])))
+	{
+		if (s1[i] > s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (s2[i] > s1[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
+}

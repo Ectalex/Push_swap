@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 CC = cc
@@ -28,7 +28,7 @@ bonus : $(OBJ) $(OBJ_BONUS)
 	ar crs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) -c $< -o $@
 
 clean :
 	rm -f $(OBJ) $(OBJ_BONUS)

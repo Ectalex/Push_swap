@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_error(char **str, t_sw *sw)
+void	ft_error(t_sw *sw)
 {
 	int	j;
 	int	i;
@@ -21,20 +21,20 @@ void	ft_error(char **str, t_sw *sw)
 	i = 0;
 	j = 1;
 	k = 1;
-	while (j < sw->argc)
+	while (j < sw->ac)
 	{
-		while (str[j][i])
+		while (sw->av[j][i])
 		{
-			if ((str[j][i] < '0' || str[j][i] > '9') && str[j][i] != ' ')
+			if ((sw->av[j][i] < '0' || sw->av[j][i] > '9') && sw->av[j][i] != ' ')
 				sw->error = 1;
 			i++;
 		}
 		i = 0;
-		while (k < sw->argc)
+		while (k < sw->ac)
 		{
-			while (str[j][i] == str[k][i] && str[j][i] && j != k)
+			while (sw->av[j][i] == sw->av[k][i] && sw->av[j][i] && j != k)
 			{
-				if (str[j][i] == str[k][i] && !str[j][i + 1] && !str[k][i + 1])
+				if (sw->av[j][i] == sw->av[k][i] && !sw->av[j][i + 1] && !sw->av[k][i + 1])
 					sw->error = 1;
 				i++;
 			}
@@ -44,21 +44,29 @@ void	ft_error(char **str, t_sw *sw)
 		k = 0;
 		j++;
 	}
+	sw->j = j;
 }
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	j;
 	t_sw	sw;
 
-	i = 0;
-	j = 1;
-	sw.argc = argc;
-	ft_error(argv, &sw);
+	int	i = 0;
+	sw.k = 0;
+	sw.p = 0;
+	sw.ac = argc;
+	sw.av = argv;
+	ft_error(&sw);
 	if (sw.error == 1)
 	{
 		write(1, "ERROR\n", 6);
 		return(0);
+	}
+	sw.in = "ra";
+	ft_algo(&sw);
+	while (i < 4)
+	{
+		printf("%d : sw.av =  %s     %d : sw.b =  %s\n", i, sw.av[i + 1], i, sw.b[i]);
+		i++;
 	}
 }
