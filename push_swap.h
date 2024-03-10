@@ -30,11 +30,15 @@ typedef struct s_sw
 }	t_sw;
 
 void	ft_error(t_sw *sw);
+void	ft_prog(t_sw *sw);
 void	ft_algo(t_sw *sw);
 void	ft_pa(t_sw *sw);
 void	ft_pb(t_sw *sw);
 void	ft_ss(t_sw *sw);
 void	ft_rr(t_sw *sw);
+void	ft_rrr(t_sw *sw);
+int	ft_check(t_sw *sw);
+int	ft_atoi(const char *str);
 int	ft_strcmp(const char *s1, const char *s2);
 
 #endif

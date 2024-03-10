@@ -23,17 +23,19 @@ void	ft_algo(t_sw *sw)
 		ft_ss(sw);
 	else if (!ft_strcmp(sw->in, "ra") || !ft_strcmp(sw->in, "rb") || !ft_strcmp(sw->in, "rr"))
 		ft_rr(sw);
+	else if (!ft_strcmp(sw->in, "rra") || !ft_strcmp(sw->in, "rrb") || !ft_strcmp(sw->in, "rrr"))
+		ft_rrr(sw);
 	sw->p++;
 	if (sw->p == 1)
 		sw->in = "pb";
 	else if (sw->p == 2)
-		sw->in = "sa";
+		sw->in = "pb";
 	else if (sw->p == 3)
 		sw->in = "pb";
 	else if (sw->p == 4)
-		sw->in = "sa";
+		sw->in = "rrb";
 	else if (sw->p == 5)
-		sw->in = "rr";
+		sw->in = "pa";
 	if (sw->p <= 5)
 		ft_algo(sw);
 }
@@ -59,14 +61,18 @@ void	ft_pb(t_sw *sw)
 void	ft_pa(t_sw *sw)
 {
 	int	i;
+	int	j;
 	
+	sw->j++;
+	j = sw->j;
+	while (--j > 0)
+		sw->av[j] = sw->av[j - 1];
 	i = -1;
 	sw->av[1] = sw->b[0];
 	while (sw->k > ++i)
 		sw->b[i] = sw->b[i + 1];
 	sw->b[sw->k - 1] = NULL;
 	sw->k--;
-	sw->j++;
 }
 
 void	ft_ss(t_sw *sw)

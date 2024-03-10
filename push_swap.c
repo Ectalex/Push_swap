@@ -63,8 +63,8 @@ int	main(int argc, char **argv)
 		write(1, "ERROR\n", 6);
 		return(0);
 	}
-	sw.in = "ra";
-	ft_algo(&sw);
+	sw.in = "hg";
+	ft_prog(&sw);
 	while (i < 4)
 	{
 		printf("%d : sw.av =  %s     %d : sw.b =  %s\n", i, sw.av[i + 1], i, sw.b[i]);
