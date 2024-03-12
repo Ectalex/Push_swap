@@ -12,8 +12,9 @@
 
 #include "push_swap.h"
 
-void	ft_algo(t_sw *sw)
+void	ft_algo(t_sw *sw, char *in)
 {
+	sw->in = in;
 //	sw->b = malloc(sizeof(sw->av) * (1));
 	if (!ft_strcmp(sw->in, "pb"))
 		ft_pb(sw);
@@ -25,19 +26,6 @@ void	ft_algo(t_sw *sw)
 		ft_rr(sw);
 	else if (!ft_strcmp(sw->in, "rra") || !ft_strcmp(sw->in, "rrb") || !ft_strcmp(sw->in, "rrr"))
 		ft_rrr(sw);
-	sw->p++;
-	if (sw->p == 1)
-		sw->in = "pb";
-	else if (sw->p == 2)
-		sw->in = "pb";
-	else if (sw->p == 3)
-		sw->in = "pb";
-	else if (sw->p == 4)
-		sw->in = "rrb";
-	else if (sw->p == 5)
-		sw->in = "pa";
-	if (sw->p <= 5)
-		ft_algo(sw);
 }
 
 void	ft_pb(t_sw *sw)
@@ -87,7 +75,7 @@ void	ft_ss(t_sw *sw)
 	}
 	else if ((!ft_strcmp(sw->in, "ss") || !ft_strcmp(sw->in, "sb")) && sw->k > 1)
 	{
-		t = sw->b[0];
+		t = sw->b[1];
 		sw->b[1] = sw->b[0];
 		sw->b[0] = t;
 	}

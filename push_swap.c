@@ -51,10 +51,11 @@ int	main(int argc, char **argv)
 {
 	t_sw	sw;
 
-	int	i = 0;
+	int	i = 1;
 	sw.k = 0;
 	sw.p = 0;
-	sw.b = malloc(sizeof(sw.av) * 5);
+	sw.b = malloc(sizeof(sw.av) * 50);
+	sw.diff = malloc(sizeof(int) * 50);
 	sw.ac = argc;
 	sw.av = argv;
 	ft_error(&sw);
@@ -65,9 +66,9 @@ int	main(int argc, char **argv)
 	}
 	sw.in = "hg";
 	ft_prog(&sw);
-	while (i < 4)
+	while (i < sw.j || i - 1 < sw.k)
 	{
-		printf("%d : sw.av =  %s     %d : sw.b =  %s\n", i, sw.av[i + 1], i, sw.b[i]);
+		printf("%d : sw.av = %s  et  sw.b = %s\n", i, sw.av[i], sw.b[i - 1]);
 		i++;
 	}
 }

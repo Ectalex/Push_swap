@@ -24,6 +24,7 @@ typedef struct s_sw
 	int	k;
 	int	p;
 	int	ac;
+	char	*diff;
 	char	*in;
 	char	**av;
 	char	**b;
@@ -31,7 +32,7 @@ typedef struct s_sw
 
 void	ft_error(t_sw *sw);
 void	ft_prog(t_sw *sw);
-void	ft_algo(t_sw *sw);
+void	ft_algo(t_sw *sw, char *in);
 void	ft_pa(t_sw *sw);
 void	ft_pb(t_sw *sw);
 void	ft_ss(t_sw *sw);
@@ -40,5 +41,6 @@ void	ft_rrr(t_sw *sw);
 int	ft_check(t_sw *sw);
 int	ft_atoi(const char *str);
 int	ft_strcmp(const char *s1, const char *s2);
+char	*ft_itoa(int n);
 
 #endif
