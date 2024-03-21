@@ -6,7 +6,7 @@
 /*   By: albriffa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 15:43:31 by albriffa          #+#    #+#             */
-/*   Updated: 2024/02/01 15:50:53 by albriffa         ###   ########.fr       */
+/*   Updated: 2024/03/21 06:54:22 by albriffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int	main(int argc, char **argv)
 	int	i = 1;
 	sw.k = 0;
 	sw.p = 0;
-	sw.b = malloc(sizeof(sw.av) * 50);
-	sw.diff = malloc(sizeof(int) * 50);
+	sw.b = malloc(sizeof(sw.av) * 500);
+	sw.diff = malloc(sizeof(int) * 500);
 	sw.ac = argc;
 	sw.av = argv;
 	ft_error(&sw);

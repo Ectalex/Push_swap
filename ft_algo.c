@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algo1.c                                         :+:      :+:    :+:   */
+/*   ft_algo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albriffa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:06:22 by albriffa          #+#    #+#             */
-/*   Updated: 2024/02/01 16:24:10 by albriffa         ###   ########.fr       */
+/*   Updated: 2024/03/21 05:33:12 by albriffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_pb(t_sw *sw)
 		sw->av[i] = sw->av[i + 1];
 	sw->av[sw->j - 1] = NULL;
 	sw->j--;
+	write(1, "pb\n", 3);
 }
 
 void	ft_pa(t_sw *sw)
@@ -61,6 +62,7 @@ void	ft_pa(t_sw *sw)
 		sw->b[i] = sw->b[i + 1];
 	sw->b[sw->k - 1] = NULL;
 	sw->k--;
+	write(1, "pa\n", 3);
 }
 
 void	ft_ss(t_sw *sw)
@@ -79,4 +81,10 @@ void	ft_ss(t_sw *sw)
 		sw->b[1] = sw->b[0];
 		sw->b[0] = t;
 	}
+	if (!ft_strcmp(sw->in, "sa"))
+		write(1, "sa\n", 3);
+	else if (!ft_strcmp(sw->in, "sb"))
+		write(1, "sb\n", 3);
+	else
+		write(1, "ss\n", 3);
 }

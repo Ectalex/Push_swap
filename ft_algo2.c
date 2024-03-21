@@ -21,6 +21,12 @@ void	ft_rr(t_sw *sw)
 			sw->b[i] = sw->b[i + 1];
 		sw->b[sw->k - 1] = t;
 	}
+	if (!ft_strcmp(sw->in, "ra"))
+		write(1, "ra\n", 3);
+	else if (!ft_strcmp(sw->in, "rb"))
+		write(1, "rb\n", 3);
+	else
+		write(1, "rr\n", 3); 
 }
 
 void	ft_rrr(t_sw *sw)
@@ -44,4 +50,10 @@ void	ft_rrr(t_sw *sw)
 			sw->b[i] = sw->b[i - 1];
 		sw->b[i] = t;
 	}
+	if (!ft_strcmp(sw->in, "rra"))
+		write(1, "rrb\n", 4);
+	else if (!ft_strcmp(sw->in, "rrb"))
+		write(1, "rrb\n", 4);
+	else
+		write(1, "rrr\n", 4);
 }
