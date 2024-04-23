@@ -6,7 +6,7 @@
 /*   By: albriffa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:52:52 by albriffa          #+#    #+#             */
-/*   Updated: 2024/03/21 09:27:01 by albriffa         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:04:22 by albriffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,19 @@ void	ft_prog(t_sw *sw)
 				i = k;
 			else
 				i = j;
-			j = i;
+			j = 0;
+			k = 0;
 			if (i * 2 <= sw->k && i != 0)
 			{
 				i += sw->k - i;
 				if (i % 2 != 0)
-					i ++;
+					i--;
 				i /= 2;
 				while (i-- != 0)
+				{
 					ft_algo(sw, "rb");
+					j++;
+				}
 			}
 			else if (i * 2 > sw->k && i != 0)
 			{
@@ -78,34 +82,36 @@ void	ft_prog(t_sw *sw)
 					i ++;
 				i /= 2;
 				while (i-- != 0)
+				{
 					ft_algo(sw, "rrb");
+					k++;
+				}
+				k++;
 			}
 			ft_algo(sw, "pb");
 			if (ft_atoi(sw->b[0]) < ft_atoi(sw->b[1]))
 			{
 				ft_algo(sw, "sb");
-				if (j != 0)
-					j += 2;
+//				if (j != 0)
+//					j -= 1;
+				if (k != 0)
+					k -= 1;
 			}
-			if (j * 2 <= sw->k - 1 && j != 0)
+			if (j != 0)
 			{
-				j += (sw->k - 1) - j;
-				if (j % 2 != 0)
-					j++;
-				j /= 2;
 				while (j-- != 0)
+				{
+					write(1, "x", 1);
 					ft_algo(sw, "rrb");
+				}
 			}
-			else if (j * 2 > sw->k - 1 && j != 0)
+			else
 			{
-				j += (j * 4) - (j * 2);
-				if (j > sw->k - 1)
-					j /= sw->k - 1;
-				if (j % 2 != 0)
-					j++;
-				j /= 2;
-				while (j-- != 0)
+				while (k-- != 0)
+				{
+					write(1, "o", 1);
 					ft_algo(sw, "rb");
+				}
 			}
 		}
 
