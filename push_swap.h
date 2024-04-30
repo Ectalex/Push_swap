@@ -6,7 +6,7 @@
 /*   By: albriffa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 15:43:52 by albriffa          #+#    #+#             */
-/*   Updated: 2024/02/01 15:47:02 by albriffa         ###   ########.fr       */
+/*   Updated: 2024/04/30 09:25:33 by albriffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ typedef struct s_sw
 
 void	ft_error(t_sw *sw);
 void	ft_prog(t_sw *sw);
+
+void	prog_radix(t_sw *sw);
+
 void	ft_algo(t_sw *sw, char *in);
 void	ft_pa(t_sw *sw);
 void	ft_pb(t_sw *sw);
